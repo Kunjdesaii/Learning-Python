@@ -1,5 +1,5 @@
 class Attribute:
-    a=10
-harry = Attribute()
-harry.a = 20
-print(harry.a) 
+    a=0
+kunj = Attribute()
+kunj.a = 20
+print(kunj.a) 
