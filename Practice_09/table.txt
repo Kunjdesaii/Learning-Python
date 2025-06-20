@@ -1,0 +1,5 @@
+Multiplication table of 11 is [11, 22, 33, 44, 55, 66, 77, 88, 99, 110]: 
+Multiplication table of 22 is [22, 44, 66, 88, 110, 132, 154, 176, 198, 220]: 
+Multiplication table of 33 is [33, 66, 99, 132, 165, 198, 231, 264, 297, 330]: 
+Multiplication table of 44 is [44, 88, 132, 176, 220, 264, 308, 352, 396, 440]: 
+Multiplication table of 55 is [55, 110, 165, 220, 275, 330, 385, 440, 495, 550]: 

@@ -6,6 +6,9 @@ for i,item in enumerate(l):
 try:
     n=int(input("Enter a number: "))
     table= [n*i for i in range(1, 11)]
-    print(f"Multiplication table for {table}:")
+    
+    with open("table.txt", "a") as file:
+        file.write(f"Multiplication table of {n} is {str(table)}: \n")
+
 except ValueError:
     print("Invalid input! Please enter a valid integer.")
