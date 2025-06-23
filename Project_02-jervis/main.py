@@ -1,6 +1,7 @@
 import speech_recognition as k
 import pyttsx3
 import webbrowser
+from openai import OpenAI
 
 music = {
     "monkey": "https://www.youtube.com/watch?v=qU9mHegkTc4&pp=ygUINW81IHNvbmc%3D",
@@ -39,7 +40,10 @@ def process_command(c):
             webbrowser.open(link)
         else:
             speak("Sorry, I don't have that song in my playlist.")
-    
+    else:
+        output = aai(c)
+        speak(output)
+
 
 recognizer= k.Recognizer()
 engine= pyttsx3.init()
@@ -47,7 +51,18 @@ engine= pyttsx3.init()
 def speak(text):            
     engine.say(text)
     engine.runAndWait()
-    
+
+def aai(command):
+    client = OpenAI(api_key="AIzaSyC_VEEIzf70LL9E8zR7Tbyx7fJuseYCVwo",)
+
+    completion = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a helpful assistant."},
+            {"role": "user", "content":command}
+        ]
+    )
+    return completion.choices[0].message.content       
 
 if __name__ == "__main__":
     speak("jarvis at your service")
@@ -60,7 +75,7 @@ if __name__ == "__main__":
                 audio = r.listen(source, timeout=2, phrase_time_limit=1)
                 # print("listening...")
             word = r.recognize_google(audio)
-            if(word.lower() == "jarvis"):
+            if(word.lower() == "jimmy" or word.lower() == "jarvis" or word.lower() == "jervis" or word.lower() == "friday"):
                 speak("yes Boss give me a order")
                 
                 with k.Microphone() as source:
